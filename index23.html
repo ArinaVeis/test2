@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudioKiss</title>
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome-free-6.5.1-web/css/all.css">
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&display=swap');
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Comfortaa';
+        font-size: 16px;
+        font-weight: 500;
+      }
+      body {
+        background: rgba(255, 189, 199, 0.2);
+      }
+     .content {
+      width: 1440px;
+     }
+      #header, .footer {
+        background: linear-gradient(90deg, #FFBAC4 0%, #FFD1D8 46.92%, #FED6CE 53.25%, #FFB3A4 100%);
+      }
+      #header-content {
+        height: max-content;
+        width: 1440px;
+        color: white;
+      }
+      i.fa-brands {
+        font-size: 32px;
+      }
+      i.fa-solid {
+        font-size: 16px;
+      }
+      .logo {
+        height: 106px;
+      }
+      .order_on_event_bg {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url(images/Галерея_работ/individualnye-8-1024x682.jpg), lightgray 0px -5.375px / 100% 131.288% no-repeat;
+        background-position:center 5%;
+        background-size: cover;
+        height: 974px;
+      }  
+      .order_on_event_form {
+        z-index: 0;
+        width: 1440px;
+      }
+      .order_on_event button {
+        background-color: #FFBAC5;
+      }
+      .order_on_event button:hover {
+        background-color: rgba(255, 186, 197, 0.80);
+      }
+      .navbar {
+        background: rgba(255, 186, 197, 0.80);
+        backdrop-filter: blur(5px);
+        height: max-content;
+        align-items: start;        
+        z-index: 3;
+        width: 100%;
+        
+      }
+      .nav {
+          --bs-nav-link-color: white;
+          --bs-nav-link-hover-color: white; 
+      }
+      .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+        color: black;
+        background: white; 
+        opacity: 1;
+      }
+      ul.nav a {
+        text-decoration: none;
+        opacity: 0.5;
+        background: rgba(255, 186, 197, 0.4);
+      }
+        ul.nav button {
+          border: 1px solid white;
+          background: rgba(255, 186, 197, 0.4);
+          color: white;
+        }
+        ul.nav button:hover, ul.nav a:hover {
+          opacity: 1;
+          color: white;
+        }
+        ul.nav button:active, ul.nav button.active {
+          color:black;
+        }
+      .order_on_event_form div.col-lg-5.border-white {
+        background: rgba(0, 0, 0, 0.30);
+        backdrop-filter: blur(5px);
+      }
+      .order_on_event_form div.col-lg-5 .col-12 {
+        color: #FFBAC5;
+      }
+      .gallery_of_works .h1 {
+        margin-top: 100px;
+      }
+      .our_services .h1 {
+        margin-top: 100px;
+      }
+      .carousel-inner img{
+        height: 700px;
+      }
+      #carouselExampleIndicators {
+        box-shadow: 0px 2px 7px #997076;
+      }
+      .our_services .row.bg-white {
+        box-shadow: 0px 2px 7px #997076;
+      }
+     
+    .interior_studios .h1 {
+      margin-top: 100px;
+    }
+      .box{
+    background: #FFBAC5;
+    position: relative;
+    overflow: hidden;
+    }
+    .box:before,
+    .box:after,
+    .box .box-content:before,
+    .box .box-content:after{
+        content: "";
+        background: #fff;
+        width: 50%;
+        height: 4px;
+        transform: scaleX(0);
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1;
+        transition: all 600ms ease;
+    }
+    .box:after{
+        top: auto;
+        bottom: 10px;
+        left: auto;
+        right: 10px;
+    }
+    .box .box-content:before,
+    .box .box-content:after{
+        width: 4px;
+        height: 50%;
+        transform: scaleY(0);
+    }
+    .box .box-content:after{
+        left: auto;
+        right: 10px;
+        top: auto;
+        bottom: 10px;
+    }
+    .box:hover:before,
+    .box:hover:after,
+    .box:hover .box-content:before,
+    .box:hover .box-content:after{
+        transform: scale(1);
+    }
+    .box img{
+        width: 100%;
+        height: max-content;
+        transform: scale3d(1.1, 1.1, 1);
+        transition: all 0.25s linear;
+    }
+    .box:hover img{
+        opacity: 0.35;
+        transform: scale(1.25);
+    }
+    .box .inner-content{
+        color: #fff;
+        text-align: center;
+        width: 80%;
+        opacity: 0;
+        transform: translateX(-50%) translateY(-50%);
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transition: all 600ms ease;
+    }
+    .box:hover .inner-content{
+        opacity: 1;
+        top: 50%;
+    }
+    .box .title{
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: 0 0 3px;
+    }
+    .box .post{
+        font-size: 16px;
+        letter-spacing: 1px;
+        margin: 0 0 12px;
+        display: block;
+    }
+    .interior_studios .slide {
+      display: inline-block;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+    }
+    .interior_studios .slide.active {
+      box-shadow: 0px 2px 7px #997076;
+      z-index: 1;
+    }
+    .interior_studios .row {
+      box-shadow: 0px 2px 7px #997076;
+    }
+    .carousel-indicators, .interior_studios .carousel button {
+      visibility: hidden;
+    }
+    .slide.active .carousel-indicators, .interior_studios .slide.active  .carousel button {
+      visibility: visible;
+    }
+    .interior_studios .slide.active .carousel {
+      height: 440px;
+      width: 100%;
+      opacity: 1;
+      transition: opacity 0.5s linear, height 0.5s ease;
+    }
+    .bg-pink {
+      background-color: #FFBAC5;
+      width: 100%;
+      height: 767px;
+      transition: background-color 0.5s linear;
+    }
+    .active .bg-pink{
+      background-color: rgba(0, 0, 0, 0);
+      transition: background-color 0.5s linear;
+    }
+    .interior_studios .slide.active .bg-pink{
+      width: 100%;
+    }
+    .interior_studios .slide.active .h3 {
+      top: 60%;
+      color: black;
+      transition: top 0.3s ease-in 0.3s, color 0.3s linear 0.3s;
+    }
+    .interior_studios .carousel{
+        height: 767px;
+        opacity: 0.35;
+    }
+    .interior_studios .slide .h3 {
+      top: 50%;
+      width: 90%;
+      color: white;
+      font-weight: 700;
+    }
+    .interior_studios .description, .interior_studios .price, .interior_studios .note {
+      visibility: hidden;
+      font-size: 1pt;
+      margin: 5%;
+    }
+    .interior_studios .active .description, .interior_studios .active .price, .interior_studios .active .note {
+      visibility: visible;
+      font-size: 16px;
+      transition: visibility 0.3s linear 0.5s;
+    }
+    .interior_studios .description {
+      margin-top: 10%;
+    }
+    .interior_studios .price {
+      font-weight: 700;
+      color: #FFBAC5;
+    }
+    .interior_studios .note {
+      color: rgba(0, 0, 0, 0.50);
+      font-weight: 300;
+    }
+    .footer {
+      height: max-content;
+    }
+    .f-content {
+      width: 1440px;
+    }
+    #carouselExampleIndicators .carousel-indicators {
+      visibility: visible;
+    }
+    #carouselExampleIndicators {
+      height: min-content;
+      width: 1100px;
+    }
+    #carouselExampleIndicators .carousel-indicators li {
+      width: 100px;
+      height: 60px;
+      background-position: center;
+      background-size: cover;
+    }
+    #carouselExampleIndicators .carousel-indicators li img {
+      width: 100%;
+    }
+    #carouselExampleIndicators ul {
+      list-style-type: none;
+      width: fit-content;
+      background-color: rgba(255, 186, 197, 0.5);
+      backdrop-filter: blur(8px);
+    }
+    .scrollInd {
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      padding: 0;
+      bottom: 0px;
+    }
+    @media screen and (max-width:1439px){
+        .content {
+          width: 100%;
+          padding: 0px 52px;
+        }
+        #header, .footer {
+        padding: 0px 52px;
+        }
+        .order_on_event_form {
+        padding: 0 52px;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        .content {
+          padding: 0px 10px;
+        }
+        #header, .footer {
+        padding: 0px 10px;
+        }
+        .order_on_event_form {
+        padding: 0 10px;
+        }
+        
+    }
+
+    @media screen and (max-width: 768px) {
+      .content {
+          padding: 0px 4px;
+        }
+        #header, .footer {
+        padding: 0px 4px;
+        background: linear-gradient(90deg, #FFBAC4 0%, #FFD1D8 4%, #FED6CE 28.78%, #FFB3A4 100%);
+        }
+        .order_on_event_form {
+        padding: 0 4px;
+        }
+      * {
+        font-size: 20px;
+      }
+      .carousel-inner img{
+        height: 300px;
+      }
+      #carouselExampleIndicators .carousel-indicators li {
+      width: 50px;
+      height: 30px;
+      background-position: center;
+      background-size: cover;
+      }
+      .interior_studios .slide.active .carousel {
+        height: 300px;
+      }
+      .interior_studios .slide {
+        height: 750px;
+      }
+      .interior_studios .slide.active .h3 {
+        top: 45%;
+      }
+      .interior_studios .loft {
+        height: 630px;
+        padding: 20px;
+      }
+      .interior_studios .loft.active .h3 {
+        top: 54%;
+      }
+      .interior_studios .loft .bg-pink {
+        height: 630px;
+      }
+      .interior_studios .loft.active .bg-pink {
+        height: 630px;
+      }
+      .interior_studios .loft .carousel{
+          height: 630px;
+      }
+      .interior_studios .grim {
+        height: 630px;
+      }
+      .interior_studios .grim.active .h3 {
+        top: 54%;
+      }
+      .interior_studios .grim .bg-pink {
+        height: 590px;
+      }
+      .interior_studios .grim.active .bg-pink {
+        height: 590px;
+      }
+      .interior_studios .grim .carousel{
+          height: 590px;
+      }
+      .interior_studios .description {
+        margin-top: 15%;
+      }
+      .footer br{
+        display: none;
+      }
+      .footer .fa-brands {
+        font-size: 60px;
+        margin: 0px 10px 10px 10px;
+      }
+      #header i.fa-brands {
+        font-size: 60px;
+        padding: 0px 10px;
+      }
+      #header .icon {
+        text-align: center;
+        margin: 10px 0px;
+      }
+    }
+    </style>
+</head>
+<body class="overflow-y scrollspy-example" data-bs-spy="scroll" data-bs-target="#navbar1" data-bs-smooth-scroll="true" tabindex="0">
+  <div class="container-fluid p-0 h-100 align-items-center d-flex flex-wrap justify-content-center">
+    <div class="position-relative w-100">
+    <div class="container-fluid justify-content-center m-0 d-flex" id="header">
+      <div class="row align-content-center align-items-center m-0 p-0" id="header-content">
+        <div class="icon col-xxl-2 col-xl-3 col-md-4 col-sm-3 col-12 p-0">
+          <a class="link-light link-opacity-75 link-opacity-100-hover p-1" href="#header"><i class="fa-brands fa-vk"></i></a>
+          <a class="link-light link-opacity-75 link-opacity-100-hover p-1" href="#header"><i class="fa-brands fa-instagram"></i></a>
+          <a class="link-light link-opacity-75 link-opacity-100-hover p-1" href="#header"><i class="fa-brands fa-youtube"></i></a>
+          <a class="link-light link-opacity-75 link-opacity-100-hover p-1" href="#header"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+        <div class="col-xxl-8 col-xl-6 col-md-4 col-sm-4 col-4 text-center align-self-start">
+          <img class="logo" src="images/logo.jpg" alt="logo">
+        </div>
+        <div class="col-xxl-2 col-xl-3 col-md-4 col-sm-5 col-8 pb-2">
+          <div>
+            <a class="link-light link-offset-3 link-underline-opacity-25 link-underline-opacity-75-hover" href="#header"><i class="fa-solid fa-phone-square"></i> +7 (423) 275-8-572</a><br>
+            <a class="link-light link-offset-3 link-underline-opacity-25 link-underline-opacity-75-hover" href="#header"><i class="fa-solid fa-envelope-square"></i> studiokiss@mail.ru</a><br>
+            <i class="fa-solid fa-map-marked-alt"></i> г.Владивосток, ул. Калинина 205, 3 этаж
+          </div>
+        </div>
+      </div>
+    </div>
+ <div class="position-absolute h-100 w-100">
+    <nav class="navbar navbar-expand-lg sticky-top p-3" id="navbar1">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav nav-pills mx-auto mb-2 mb-sm-0">
+              <li class="nav-item">
+                <button type="button" class="text-center m-1" data-bs-toggle="pill"><a href="#ooe" class="nav-link rounded-0">Заказать мероприятие</a></button>
+              </li>
+              <li class="nav-item">
+                <button type="button" class="text-center m-1" data-bs-toggle="pill"><a href="#g" class="nav-link rounded-0">Галерея работ</a></button>
+               </li>
+              <li class="nav-item">
+                <button type="button" class="text-center m-1" data-bs-toggle="pill"><a href="#os" class="nav-link rounded-0">Наши услуги</a></button>
+              </li>
+              <li class="nav-item">
+                  <button type="button" class="text-center m-1" data-bs-toggle="pill"><a href="#is" class="nav-link rounded-0">Интерьерные студии</a></button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>     
+    <div class="container-fluid order_on_event justify-content-center align-items-center p-0 m-0" id="ooe"> 
+      <div class="row order_on_event_bg justify-content-center p-0 m-0">        
+        <div class="row order_on_event_form justify-content-end align-items-center m-0">
+          <div class="col-lg-6 col-md-5 col-sm-4 collapse"></div>
+            <div class="col-lg-5 col-md-6 col-sm-8 col-12 border border-white p-5 mt-5">
+              <div class="h1 text-white text-center mb-4">Заказать мероприятие</div>
+                <div class="col-12 mb-3">
+                  <label class="form-label" for="inlineFormSelectPref">Мероприятие</label>
+                  <select class="form-select rounded-0" id="inlineFormSelectPref">
+                    <option selected>Выбрать..</option>
+                    <option value="1">свадьба</option>
+                    <option value="2">день рождения</option>
+                    <option value="3">мастер-класс</option>
+                    <option value="4">корпоратив</option>
+                    <option value="5">сбор невесты</option>
+                    <option value="6">фотосессия</option>
+                  </select>
+                </div>
+                <div class="col-12 mb-3">
+                  <label for="name" class="form-label">ФИО</label>
+                  <input type="text" class="form-control rounded-0" id="name">
+                </div>
+                <div class="col-12 mb-3">
+                  <label for="phone" class="form-label">Телефон</label>
+                  <input type="tel" class="form-control rounded-0" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="+7(ХХХ)ХХХ-ХХ-ХХ">
+                </div>
+                <div class="col-12 mb-3">
+                  <label for="email" class="form-label">Электронная почта</label>
+                  <input type="email" class="form-control rounded-0" id="email">
+                </div>
+                <div class="col-12 mb-3">
+                  <label for="date" class="form-label">Предполагаемая дата</label>
+                  <input type="date" class="form-control rounded-0" id="date">
+                </div>
+                <div class="col-12 mt-4 text-center">
+                  <button type="button" class="btn rounded-0 text-white px-4 py-2 m-2">Отправить</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="row w-100 justify-content-center m-0">
+        <div class="row content gallery_of_works m-0 p-0" id="g">
+          <div class="col-12 h1 text-center mb-3">Галерея работ</div> 
+          <div class="row justify-content-center p-0 m-0 mb-3">
+          <div id="carouselExampleIndicators" class="carousel slide bg-white p-3">     
+            <div class="carousel-inner h-100">
+              <div class="scrollInd position-absolute">
+                <ul class="carousel-indicators m-0 position-absolute bottom-0">
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-image: url('images/Галерея_работ/bere-1-1024x683.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" style="background-image: url('images/Галерея_работ/bere-2-1024x683.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" style="background-image: url('images/Галерея_работ/bere-3-1024x682.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4" style="background-image: url('images/Галерея_работ/img_3907.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5" style="background-image: url('images/Галерея_работ/individualnye-2-1024x683.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6" style="background-image: url('images/Галерея_работ/individualnye-3-1024x682.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7" style="background-image: url('images/Галерея_работ/individualnye-6-1024x683.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8" style="background-image: url('images/Галерея_работ/individualnye-8-1024x682.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9" style="background-image: url('images/Галерея_работ/lav-1-1024x682.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9" aria-label="Slide 10" style="background-image: url('images/Галерея_работ/lav-1024x683.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="10" aria-label="Slide 11" style="background-image: url('images/Галерея_работ/lav-2-1024x683.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="11" aria-label="Slide 12" style="background-image: url('images/Галерея_работ/lav-3-1024x683.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="12" aria-label="Slide 13" style="background-image: url('images/Галерея_работ/semya-1-1024x682.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="13" aria-label="Slide 14" style="background-image: url('images/Галерея_работ/semya-10-1024x683.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="14" aria-label="Slide 15" style="background-image: url('images/Галерея_работ/semya-11-1024x683.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="15" aria-label="Slide 16" style="background-image: url('images/Галерея_работ/semya-3-1024x683.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="16" aria-label="Slide 17" style="background-image: url('images/Галерея_работ/semya-4-1024x683.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="17" aria-label="Slide 18" style="background-image: url('images/Галерея_работ/unnamed.jpg');"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="18" aria-label="Slide 19" style="background-image: url('images/Галерея_работ/420.jpg');"></li>
+                </ul>
+              </div>
+                <div class="carousel-item active" data-bs-interval="5000" id="0">
+                  <img src="images/Галерея_работ/bere-1-1024x683.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="1">
+                  <img src="images/Галерея_работ/bere-2-1024x683.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="2">
+                  <img src="images/Галерея_работ/bere-3-1024x682.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="3">
+                  <img src="images/Галерея_работ/img_3907.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="4">
+                  <img src="images/Галерея_работ/individualnye-2-1024x683.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="5">
+                  <img src="images/Галерея_работ/individualnye-3-1024x682.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="6">
+                  <img src="images/Галерея_работ/individualnye-6-1024x683.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="7">
+                  <img src="images/Галерея_работ/individualnye-8-1024x682.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="8">
+                  <img src="images/Галерея_работ/lav-1-1024x682.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="9">
+                  <img src="images/Галерея_работ/lav-1024x683.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="10">
+                  <img src="images/Галерея_работ/lav-2-1024x683.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="11">
+                  <img src="images/Галерея_работ/lav-3-1024x683.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="12">
+                  <img src="images/Галерея_работ/semya-1-1024x682.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="13">
+                  <img src="images/Галерея_работ/semya-10-1024x683.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="14">
+                  <img src="images/Галерея_работ/semya-11-1024x683.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="15">
+                  <img src="images/Галерея_работ/semya-3-1024x683.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="16">
+                  <img src="images/Галерея_работ/semya-4-1024x683.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="17">
+                  <img src="images/Галерея_работ/unnamed.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000" id="18">
+                  <img src="images/Галерея_работ/420.jpg" class="d-block w-100 object-fit-cover" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row content our_services justify-content-center m-0" id="os">
+          <div class="h1 text-center mb-3">Наши услуги</div>
+            <div class="row p-lg-2 p-1 bg-white">
+              <div class="col-lg-4 col-12 py-lg-3 py-2">
+                <div class="box">
+                    <img src="images/услуги/individualnye-10-1024x682.jpg" alt="individualnye">
+                    <div class="box-content">
+                      <div class="inner-content">
+                        <h3 class="title">Индивидуальная фотосессия</h3>
+                        <span class="post">6900 руб/час</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-12 py-lg-3 py-2">
+                  <div class="box">
+                    <img src="images/услуги/semya-8-1-1024x682.jpg" alt="semya">
+                    <div class="box-content">
+                      <div class="inner-content">
+                        <h3 class="title">Семейная и детская фотосессия</h3>
+                        <span class="post">6500 руб/час</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-12 py-lg-3 py-2">
+                  <div class="box">
+                    <img src="images/услуги/svadba-1024x682.jpg" alt="svadba">
+                    <div class="box-content">
+                      <div class="inner-content">
+                        <h3 class="title">Свадебная фотосессия</h3>
+                        <span class="post">6500 руб/час</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="row content interior_studios justify-content-center p-0 m-0" id="is">
+            <div class="col-12 h1 text-center mb-4 px-2">Интерьерные студии</div>
+            <div class="row m-0 p-0 bg-white">
+              <div class="col-lg-4 slide bg-white position-relative p-3">      
+                <div class="bg-pink">
+                  <div id="carouselExampleIndicators1" class="carousel slide w-100">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="8" aria-label="Slide 9"></button>
+                    </div>
+                    <div class="carousel-inner h-100">
+                      <div class="carousel-item h-100 active">
+                        <img src="images/зал_white/white-1.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                      </div>
+                      <div class="carousel-item h-100">
+                        <img src="images/зал_white/white-10.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                      </div>
+                      <div class="carousel-item h-100">
+                        <img src="images/зал_white/white-11.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                      </div>
+                      <div class="carousel-item h-100">
+                        <img src="images/зал_white/white-12.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                      </div>
+                      <div class="carousel-item h-100">
+                        <img src="images/зал_white/white-15.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                      </div>
+                      <div class="carousel-item h-100">
+                        <img src="images/зал_white/white-2.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                      </div>
+                      <div class="carousel-item h-100">
+                        <img src="images/зал_white/white-3.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                      </div>
+                      <div class="carousel-item h-100">
+                        <img src="images/зал_white/white-4.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                      </div>
+                      <div class="carousel-item h-100">
+                        <img src="images/зал_white/white-7.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>       
+              <div class="h3 text-center position-absolute w-100">Зал White</div>
+              <div class="description">Большой и светлый зал White — самое подходящее место для создания индивидуальных, семейных и свадебных фотографий, а также проведения праздников и сборов невесты! Зал White — это одно большое пространство, а не отдельные «зоны», вы арендуете весь зал целиком, вне зависимости от того, где хотите снимать. Не забудьте вернуть все после съемки на свои места.</div>
+              <div class="price">Стоимость аренды 2200 руб/час</div>
+            </div>
+          </div>
+          <div class="col-lg-4 loft slide bg-white position-relative py-3">
+            <div class="bg-pink">
+              <div id="carouselExampleIndicators2" class="carousel slide w-100">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="8" aria-label="Slide 9"></button>
+                </div>
+                <div class="carousel-inner h-100">
+                  <div class="carousel-item h-100 active">
+                    <img src="images/зал_loft/img_4860.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                  </div>
+                  <div class="carousel-item h-100">
+                    <img src="images/зал_loft/img_4863.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                  </div>
+                  <div class="carousel-item h-100">
+                    <img src="images/зал_loft/img_4864.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                  </div>
+                  <div class="carousel-item h-100">
+                    <img src="images/зал_loft/img_4868-horz.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                  </div>
+                  <div class="carousel-item h-100">
+                    <img src="images/зал_loft/img_4870.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                  </div>
+                  <div class="carousel-item h-100">
+                    <img src="images/зал_loft/img_4872.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                  </div>
+                  <div class="carousel-item h-100">
+                    <img src="images/зал_loft/img_4875.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                  </div>
+                  <div class="carousel-item h-100">
+                    <img src="images/зал_loft/img_4877.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                  </div>
+                  <div class="carousel-item h-100">
+                   <img src="images/зал_loft/img_4879.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              <div class="h3 text-center position-absolute w-100">Зал Loft</div>
+              <div class="description">Брутальный зал лофт отлично подойдет как для индивидуальных съемок, так и стильных лав-стори и семейных съемок, идеален для сборов жениха и других мужских портретов. Съемки в белье, снятые здесь, будут смотреться особенно вызывающе.</div>
+              <div class="price">Стоимость аренды 2000 руб/час</div>
+            </div>
+          </div>
+          <div class="col-lg-4 grim slide bg-white position-relative p-3">
+            <div class="bg-pink">
+              <div id="carouselExampleIndicators3" class="carousel slide w-100">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                </div>
+                <div class="carousel-inner h-100">
+                  <div class="carousel-item h-100 active">
+                    <img src="images/зал_Гримерка/hall_dressing_03.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                  </div>
+                  <div class="carousel-item h-100">
+                    <img src="images/зал_Гримерка/hall_dressing_04.jpg" class="d-block img-fluid h-100 w-100 object-fit-cover" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              <div class="h3 text-center position-absolute w-100">Зал Гримерка</div>
+              <div class="description">Вы также можете воспользоваться гримерными столами (5 мест).</div>
+              <div class="price">Стоимость аренды 500 руб/час</div>
+              <div class="note">Пожалуйста, заранее уточняйте возможность бронирования гримерок перед съемкой в залах через администратора студии.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <script>
+        const slides = document.querySelector('.interior_studios').querySelectorAll('.slide')
+        for (const slide of slides) {
+            slide.addEventListener('click', () => {
+                clearActiveClasses()
+                for (const slide of slides){ ;        
+                  slide.classList.remove('col-lg-4')
+                  slide.classList.remove('col-lg-6')
+                  slide.classList.add('col-lg-3')
+                }
+                slide.classList.remove('col-lg-3')
+                slide.classList.add('col-lg-6')
+                slide.classList.add('active')
+            })             
+          }
+        function clearActiveClasses() {
+            slides.forEach((slide) => {
+                slide.classList.remove('active')
+            })
+        }
+      </script>
+  </div>
+    <div class="footer container-fluid justify-content-center d-flex align-items-center mt-3"  id="f">
+      <div class="row f-content m-0">
+        <div class="col-lg-3 col-sm-6 col-12 px-3 pt-lg-3 pt-5">
+          <div class="h-footer text-white mb-lg-4 mb-3">Меню</div>
+          <div class="footer-nav" id="navbarFooter">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="#ooe">Заказать мероприятие</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#g">Галерея работ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#os">Наши услуги</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white active" href="#is">Интерьерные студии</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 px-3 pt-lg-3 pt-5">
+          <div class="h-footer text-white mb-lg-4 mb-3">Контакты</div>
+          <div class="text-white mb-2"><i class="fa-solid fa-map-marked-alt"></i> г.Владивосток, ул. Калинина 205, ТЦ "Зеленый Остров" 2-ой корпус, 3 этаж</div>
+          <div class="text-white mb-2"><i class="fa-solid fa-phone-square"></i> <a class="link-light link-offset-3 link-underline-opacity-25 link-underline-opacity-75-hover" href="#f">+7 (423) 275-8-572</a></div>
+          <div class="text-white mb-2"><i class="fa-solid fa-envelope-square"></i> <a class="link-light link-offset-3 link-underline-opacity-25 link-underline-opacity-75-hover" href="#f">studiokiss@mail.ru</a></div>
+          <div class="text-white"><i class="fa-solid fa-clock"></i> Ежедневно: 9:00 - 19:00</div>
+        </div>
+          <div class="col-lg-4 col-sm-8 col-12 px-3 pt-lg-3 pt-5">
+            <div class="h-footer text-white mb-lg-4 mb-3">О нас</div>
+            <div class="text-white pb-4">
+              StudioKiss – это забота, красота и атмосфера. Арендуйте залы студии для своей фото/видео съёмки или мероприятия. Также вы можете воспользоваться услугами наших специалистов – фотографов, визажистов, стилистов. Фотошкола StudioKiss – одна из лучших в городе. Доверяйте себя профессионалам.
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-4 col-12 px-3 pt-lg-3 pt-5">
+            <div class="h-footer text-white mb-lg-2 mb-1">Ссылки на социальные сети</div>
+            <div class="text-white text-center">
+              <a class="link-light link-opacity-75 link-opacity-100-hover" href="#f"><i class="fa-brands fa-vk p-1"></i></a><br>
+              <a class="link-light link-opacity-75 link-opacity-100-hover" href="#f"><i class="fa-brands fa-instagram p-1"></i></a><br>
+              <a class="link-light link-opacity-75 link-opacity-100-hover" href="#f"><i class="fa-brands fa-youtube p-1"></i></a><br>
+              <a class="link-light link-opacity-75 link-opacity-100-hover" href="#f"><i class="fa-brands fa-telegram p-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
